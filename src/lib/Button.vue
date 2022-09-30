@@ -1,6 +1,7 @@
 <template>
   <button class="jgso-button"
-          :class="classList">
+          :class="classList"
+          :disabled="disabled">
     <slot/>
   </button>
 </template>
@@ -21,6 +22,10 @@
       level: {
         type: String,
         default: 'normal'
+      },
+      disabled: {
+        type: Boolean,
+        default: false
       }
     },
     setup(props) {
@@ -44,6 +49,7 @@
   $blue: #40a9ff;
   $radius: 4px;
   $red: red;
+  $grey: grey;
   .jgso-button {
     box-sizing: border-box;
     height: $h;
@@ -166,5 +172,22 @@
       }
     }
 
+    &.jgso-theme-button {
+      &[disabled] {
+        cursor: not-allowed;
+        color: $grey;
+
+        &:hover {
+          border-color: $grey;
+        }
+      }
+    }
+
+    &.jgso-theme-link, &.jgso-theme-text {
+      &[disabled] {
+        cursor: not-allowed;
+        color: $grey
+      }
+    }
   }
 </style>
