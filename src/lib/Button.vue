@@ -1,17 +1,33 @@
 <template>
   <button class="jgso-button"
-          :class="`jgso-theme-${theme}`">
+          :class="classList">
     <slot/>
   </button>
 </template>
 
 <script lang="ts">
+  import {computed} from 'vue';
+
   export default {
     props: {
       theme: {
         type: String,
         default: 'button'
+      },
+      size: {
+        type: String,
+        default: 'normal'
       }
+    },
+    setup(props) {
+      const {theme, size} = props;
+      const classList = computed(() => {
+        return {
+          [`jgso-theme-${theme}`]: theme,
+          [`jgso-size-${size}`]: size
+        };
+      });
+      return {classList};
     }
   };
 </script>
@@ -71,6 +87,19 @@
 
       &:hover, &:focus {
         background: darken(white, 5%);
+      }
+    }
+
+    &.jgso-theme-button {
+      &.jgso-size-big{
+        font-size: 24px;
+        height: 48px;
+        padding: 0 16px;
+      }
+      &.jgso-size-small{
+        font-size: 12px;
+        height: 20px;
+        padding: 0 4px;
       }
     }
   }
