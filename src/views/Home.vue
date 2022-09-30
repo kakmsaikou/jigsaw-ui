@@ -1,10 +1,10 @@
 <template>
   <TopNav/>
   <div class="banner">
-    <h1>馅饼 UI</h1>
+    <h1>拼图 UI</h1>
     <h2>一个厉害的 UI 框架</h2>
     <p class="actions">
-      <a href="https://github.com/kakmsaikou/pie-ui">Github</a>
+      <a href="https://github.com/kakmsaikou/jigsaw-ui">Github</a>
       <router-link to="/doc">开始</router-link>
     </p>
   </div>
@@ -37,7 +37,7 @@
         $h: 28px;
         height: $h;
         line-height: $h;
-        border-radius: $h/2;
+        border-radius: calc($h / 2);
         padding: 0 8px;
       }
     }

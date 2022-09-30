@@ -24,10 +24,10 @@
   $h2: $h - 4px;
   button {
     height: $h;
-    width: $h*2;
+    width: $h * 2;
     border: none;
     background: #bfbfbf;
-    border-radius: $h/2;
+    border-radius: calc($h / 2);
     position: relative;
 
     span {
@@ -37,7 +37,7 @@
       width: $h2;
       height: $h2;
       background: white;
-      border-radius: $h2 / 2;
+      border-radius: calc($h / 2);
       transition: all 250ms;
     }
 
