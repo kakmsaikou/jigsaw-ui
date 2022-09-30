@@ -1,15 +1,13 @@
 <template>
-  <div>Hi</div>
-  <Tacitus/>
+  <div>导航栏 |
+    <router-link to="/">Frank</router-link>
+    <router-link to="/Ray">Ray</router-link>
+  </div>
+  <router-view/>
 </template>
 
 <script>
-  import Tacitus from './components/Tacitus.vue'
-
   export default {
     name: 'App',
-    components: {
-      Tacitus
-    }
   }
 </script>
