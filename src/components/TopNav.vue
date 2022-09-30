@@ -5,7 +5,7 @@
       <li>菜单1</li>
       <li>菜单2</li>
     </ul>
-    <button class="toggleAside"  @click="toggleMenu"></button>
+    <button class="toggleAside" @click="toggleMenu"></button>
   </div>
 </template>
 
@@ -30,7 +30,10 @@
     background-color: pink;
     display: flex;
     padding: 16px;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     z-index: 10;
 
     > .logo {
@@ -68,7 +71,7 @@
       > .logo {
         margin: 0 auto;
       }
-      > .toggleAside{
+      > .toggleAside {
         display: inline-block;
       }
     }
