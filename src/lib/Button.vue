@@ -1,6 +1,6 @@
 <template>
   <button class="jgso-button"
-          :class="`theme-${theme}`">
+          :class="`jgso-theme-${theme}`">
     <slot/>
   </button>
 </template>

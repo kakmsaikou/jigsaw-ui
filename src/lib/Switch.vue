@@ -1,5 +1,5 @@
 <template>
-  <button :class='{checked}' @click="toggle">
+  <button class="jgso-switch" :class='{"jgso-checked":checked}' @click="toggle">
     <span></span>
   </button>
 </template>
@@ -19,10 +19,10 @@
   };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   $h: 22px;
   $h2: $h - 4px;
-  button {
+  .jgso-switch {
     height: $h;
     width: $h * 2;
     border: none;
@@ -41,7 +41,7 @@
       transition: all 250ms;
     }
 
-    &.checked {
+    &.jgso-checked {
       background: #1890ff;
 
       span {
@@ -59,7 +59,7 @@
       }
     }
 
-    &.checked:active {
+    &.jgso-checked:active {
       > span {
         width: $h2 + 4px;
         margin-left: -4px;
