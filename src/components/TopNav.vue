@@ -5,6 +5,7 @@
       <li>菜单1</li>
       <li>菜单2</li>
     </ul>
+    <span class="toggleAside"></span>
   </div>
 </template>
 
@@ -17,7 +18,7 @@
       const toggleMenu = () => {
         asideVisible.value = !asideVisible.value;
       };
-      return {toggleMenu}
+      return {toggleMenu};
     }
   };
 
@@ -35,6 +36,8 @@
     > .logo {
       max-width: 6em;
       margin-right: auto;
+      justify-content: center;
+      align-items: center;
     }
 
     > .menu {
@@ -44,6 +47,19 @@
 
       > li {
         margin: 0 1em;
+      }
+    }
+
+    > .toggleAside{
+
+    }
+
+    @media (max-width: 500px) {
+      > .menu {
+        display: none;
+      }
+      > .logo {
+        margin: 0 auto;
       }
     }
   }
