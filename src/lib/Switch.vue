@@ -18,15 +18,21 @@
     background: blue;
     border-radius: $h/2;
     position: relative;
+
+    span {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: $h2;
+      height: $h2;
+      background: white;
+      border-radius: $h2 / 2;
+    }
+
+    &:hover span{
+      left: calc(100% - #{$h2} - 2px);
+    }
   }
 
-  span {
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: $h2;
-    height: $h2;
-    background: white;
-    border-radius: $h2 / 2;
-  }
+
 </style>
