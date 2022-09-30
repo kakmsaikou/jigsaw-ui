@@ -3,15 +3,15 @@ import App from './App.vue';
 import './index.css';
 import {createWebHashHistory, createRouter} from 'vue-router';
 
-import Tacitus from './components/Tacitus.vue';
-import Ray from './components/Ray.vue';
+import Home from './views/Home.vue';
+import Doc from './views/Doc.vue';
 
 const history = createWebHashHistory();
 const router = createRouter({
   history: history,
   routes: [
-    {path: '/', component: Tacitus},
-    {path: '/ray', component: Ray}
+    {path: '/', component: Home},
+    {path: '/Doc', component: Doc}
   ]
 });
 
