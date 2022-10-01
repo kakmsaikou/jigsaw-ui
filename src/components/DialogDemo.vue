@@ -5,7 +5,10 @@
   <Dialog v-model:visible="x"
           dontCloseOnClickOverlay
           :ok="f1"
-          :cancel="f2"></Dialog>
+          :cancel="f2">
+    <div>第一行文字</div>
+    <div>第二行文字</div>
+  </Dialog>
 </template>
 <script lang="ts">
   import Dialog from '../lib/Dialog.vue';

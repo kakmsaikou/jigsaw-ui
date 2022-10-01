@@ -4,13 +4,13 @@
          @click="onClickOverlay"></div>
     <div class="jgso-dialog-wrapper">
       <div class="jgso-dialog">
-        <header>标题
+        <header>
+          {{title}}
           <span class="jgso-dialog-close"
                 @click="close"></span>
         </header>
         <main>
-          <p>第一行字</p>
-          <p>第二行字</p>
+          <slot/>
         </main>
         <footer>
           <Button level="main"
@@ -27,6 +27,10 @@
 
   export default {
     props: {
+      title: {
+        type: String,
+        default: '提示'
+      },
       visible: {
         type: Boolean,
         default: false
