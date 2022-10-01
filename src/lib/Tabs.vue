@@ -1,31 +1,74 @@
 <template>
   <div class="jgso-tabs">
-    <div class="jgso-tabs-nav">
-      <div class="jgso-tabs-nav-item" v-for="(t, index) in titles" :key="index">{{ t }}</div>
+    <div class="jgso-tabs-nav" ref="container">
+      <div class="jgso-tabs-nav-item"
+           v-for="(t, index) in titles"
+           :ref="el=>{if(el) navItems[index] = el}"
+           @click="select(t)"
+           :class="{selected: t === selected}"
+           :key="index"
+      >{{ t }}
+      </div>
+      <div class="jgso-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="jgso-tabs-content">
-      <component class="jgso-tabs-content-item" v-for="c in components" :is="c"/>
+      <component class="jgso-tabs-content-item" :is="current" :key="current.props.title"/>
     </div>
   </div>
 </template>
 
 <script lang="ts">
   import Tab from './Tab.vue';
+  import {computed, onMounted, onUpdated, ref} from 'vue';
 
   export default {
+    props: {
+      selected: {
+        type: String
+      }
+    },
+
     setup(props, context) {
-      const components = context.slots.default();
-      components.forEach((tag) => {
+      const navItems = ref<HTMLDivElement[]>([]);
+      const indicator = ref<HTMLDListElement>(null);
+      const container = ref<HTMLDListElement>(null);
+      const x = () => {
+        const divs = navItems.value;
+        const result = divs.filter(div => div.classList.contains('selected'))[0];
+        const {width} = result.getBoundingClientRect();
+        indicator.value.style.width = width + 'px';
+        const {left: left1} = container.value.getBoundingClientRect();
+        const {left: left2} = result.getBoundingClientRect();
+        const left = left2 - left1;
+        indicator.value.style.left = left + 'px';
+      };
+
+      onMounted(x);
+
+      onUpdated(x);
+
+      const defaults = context.slots.default();
+
+      defaults.forEach((tag) => {
         if (tag.type !== Tab) {
           throw new Error('Tabs 子标签必须是 Tab');
         }
       });
-      const titles = components.map((tag) => {
+
+      const current = computed(() => {
+        return defaults.find(tag => tag.props.title === props.selected);
+      });
+
+      const titles = defaults.map((tag) => {
         return tag.props.title;
       });
-      return {components, titles};
-    }
 
+      const select = (title: string) => {
+        context.emit('update:selected', title);
+      };
+
+      return {navItems, indicator, container, defaults, current, titles, select};
+    }
   };
 </script>
 
@@ -39,6 +82,7 @@
       display: flex;
       color: $color;
       border-bottom: 1px solid $border-color;
+      position: relative;
 
       &-item {
         padding: 8px 0;
@@ -52,6 +96,16 @@
         &.selected {
           color: $blue;
         }
+      }
+
+      &-indicator {
+        position: absolute;
+        height: 3px;
+        background: $blue;
+        left: 0;
+        bottom: -1px;
+        width: 100px;
+        transition: all 250ms;
       }
     }
 
