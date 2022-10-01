@@ -10,7 +10,7 @@
         <router-link to="/doc">文档</router-link>
       </li>
     </ul>
-    <svg v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleMenu">
+    <svg v-if="menuButtonVisible" class="toggleAside" @click="toggleMenu">
       <use xlink:href='#icon-menu'></use>
     </svg>
   </div>
@@ -21,7 +21,7 @@
 
   export default {
     props: {
-      toggleMenuButtonVisible: {
+      menuButtonVisible: {
         type: Boolean,
         default: false
       }
@@ -57,8 +57,8 @@
       margin-right: auto;
 
       > svg {
-        width: 32px;
-        height: 32px;
+        width: 40px;
+        height: 40px;
       }
     }
 
