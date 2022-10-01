@@ -1,3 +1,4 @@
+import './assets/iconfont'
 import './lib/jgso.scss';
 import './index.scss';
 import {createApp} from 'vue';
