@@ -2,7 +2,7 @@ import {createApp, h} from 'vue';
 import Dialog from './Dialog.vue';
 
 export const openDialog = (options) => {
-  const {title, content, ok, cancel} = options;
+  const {title, content, ok, cancel, dontCloseOnClickOverlay} = options;
   const div = document.createElement('div');
   document.body.appendChild(div);
   const close = () => {
@@ -20,9 +20,13 @@ export const openDialog = (options) => {
             }
           },
           ok,
-          cancel
+          cancel,
+          dontCloseOnClickOverlay
         },
-        {title, content}
+        {
+          title: () => h('span', title),
+          content: () => h('span', content)
+        },
       );
     }
   });

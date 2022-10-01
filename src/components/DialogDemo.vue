@@ -50,7 +50,8 @@
           },
           cancel() {
             console.log('cancel');
-          }
+          },
+          dontCloseOnClickOverlay: true
         });
       };
 
