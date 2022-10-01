@@ -6,8 +6,13 @@
           dontCloseOnClickOverlay
           :ok="f1"
           :cancel="f2">
-    <div>第一行文字</div>
-    <div>第二行文字</div>
+    <template v-slot:title>
+      <strong>Hi</strong>
+    </template>
+    <template v-slot:content>
+      Hello
+      <div>World</div>
+    </template>
   </Dialog>
 </template>
 <script lang="ts">
