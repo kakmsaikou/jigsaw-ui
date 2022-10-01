@@ -19,7 +19,7 @@
 
 <script lang="ts">
   import Tab from './Tab.vue';
-  import {computed, onMounted, onUpdated, ref} from 'vue';
+  import {computed, onMounted, ref, watchEffect} from 'vue';
 
   export default {
     props: {
@@ -29,21 +29,20 @@
     },
 
     setup(props, context) {
-      const selectedItem = ref<HTMLDListElement>(null)
+      const selectedItem = ref<HTMLDListElement>(null);
       const indicator = ref<HTMLDListElement>(null);
       const container = ref<HTMLDListElement>(null);
-      const x = () => {
-        const {width} = selectedItem.value.getBoundingClientRect();
-        indicator.value.style.width = width + 'px';
-        const {left: left1} = container.value.getBoundingClientRect();
-        const {left: left2} = selectedItem.value.getBoundingClientRect();
-        const left = left2 - left1;
-        indicator.value.style.left = left + 'px';
-      };
 
-      onMounted(x);
-
-      onUpdated(x);
+      onMounted(() => {
+        watchEffect(() => {
+          const {width} = selectedItem.value?.getBoundingClientRect();
+          indicator.value.style.width = width + 'px';
+          const {left: left1} = container.value?.getBoundingClientRect();
+          const {left: left2} = selectedItem.value?.getBoundingClientRect();
+          const left = left2 - left1;
+          indicator.value.style.left = left + 'px';
+        });
+      });
 
       const defaults = context.slots.default();
 
