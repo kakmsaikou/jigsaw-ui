@@ -1,20 +1,31 @@
 <template>
-  <div>
-    <h1>Switch 组件示例</h1>
-    <Demo :component="SwitchDemo1"/>
-    <Demo :component="SwitchDemo2"/>
+  <div class="demo">
+    <h2>{{component.__sourceCodeTitle}}</h2>
+    <div class="demo-component">
+      <component :is="component"/>
+    </div>
+    <div class="demo-actions">
+      <Button>查看代码</Button>
+    </div>
+    <div class="demo-code">
+        <pre class="language-html"
+             v-html="Prism.highlight(component.__sourceCode, Prism.languages.html, 'html')"></pre>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-  import SwitchDemo1 from './Switch.demo1.vue';
-  import SwitchDemo2 from './Switch.demo2.vue';
-  import Demo from './Demo.vue';
+  import Button from '../lib/Button.vue';
+  import Prism from 'prismjs';
+  import 'prismjs/themes/prism.css';
 
   export default {
-    components: {Demo},
+    components: {Button},
+    props: {
+      component: Object
+    },
     setup() {
-      return {SwitchDemo1, SwitchDemo2};
+      return {Prism};
     }
   };
 </script>
