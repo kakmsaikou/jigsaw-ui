@@ -1,61 +1,18 @@
 <template>
-  <div>Dialog 示例</div>
-  <h1>示例1</h1>
-  <Button @click="toggle">Toggle</Button>
-  <Dialog v-model:visible="x"
-          dontCloseOnClickOverlay
-          :ok="f1"
-          :cancel="f2">
-    <template v-slot:title>
-      <strong>Hi</strong>
-    </template>
-    <template v-slot:content>
-      Hello
-      <div>World</div>
-    </template>
-  </Dialog>
-  <h1>示例2</h1>
-  <Button @click="showDialog">showDialog</Button>
+  <h1>Dialog 示例</h1>
+  <Demo :component='DialogDemo1'/>
+  <Demo :component='DialogDemo2'/>
 </template>
 <script lang="ts">
-  import Dialog from '../lib/Dialog.vue';
-  import Button from '../lib/Button.vue';
-  import {ref} from 'vue';
-  import {openDialog} from '../lib/openDialog';
+  import Demo from './Demo.vue';
+  import DialogDemo1 from './Demos/Dialog.demo1.vue';
+  import DialogDemo2 from './Demos/Dialog.demo2.vue';
+
 
   export default {
-    components: {Dialog, Button},
+    components: {Demo},
     setup() {
-      const x = ref(false);
-
-      const toggle = () => {
-        x.value = !x.value;
-      };
-
-      const f1 = () => {
-        console.log('ok');
-        return false;
-      };
-
-      const f2 = () => {
-        console.log('cancel');
-      };
-
-      const showDialog = () => {
-        openDialog({
-          title: '标题',
-          content: '你好',
-          ok() {
-            console.log('ok');
-          },
-          cancel() {
-            console.log('cancel');
-          },
-          dontCloseOnClickOverlay: true
-        });
-      };
-
-      return {x, toggle, f1, f2, showDialog};
+      return {DialogDemo1, DialogDemo2};
     }
   };
 </script>
