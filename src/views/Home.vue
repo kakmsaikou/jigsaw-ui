@@ -101,13 +101,8 @@
         > p {
           grid-area: text
         }
-
       }
-
-
     }
-
-
   }
 
   .banner {
