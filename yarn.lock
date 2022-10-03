@@ -1653,10 +1653,10 @@ rollup-plugin-dynamic-import-variables@^1.1.0:
     globby "^11.0.0"
     magic-string "^0.25.7"
 
-rollup-plugin-esbuild@^4.10.1:
-  version "4.10.1"
-  resolved "https://registry.npmmirror.com/rollup-plugin-esbuild/-/rollup-plugin-esbuild-4.10.1.tgz#84a32419b56680149a0456442a71456e49f122c0"
-  integrity sha512-/ymcRB283zjFp1JTBXO8ekxv0c9vRc2L6OTljghsLthQ4vqeDSDWa9BVz1tHiVrx6SbUnUpDPLC0K/MXK7j5TA==
+rollup-plugin-esbuild@4.9.3:
+  version "4.9.3"
+  resolved "https://registry.npmmirror.com/rollup-plugin-esbuild/-/rollup-plugin-esbuild-4.9.3.tgz#8c62042bdda9f33d18b1c280914394e5a842dd53"
+  integrity sha512-bxfUNYTa9Tw/4kdFfT9gtidDtqXyRdCW11ctZM7D8houCCVqp5qHzQF7hhIr31rqMA0APbG47fgVbbCGXgM49Q==
   dependencies:
     "@rollup/pluginutils" "^4.1.1"
     debug "^4.3.3"
@@ -1664,14 +1664,14 @@ rollup-plugin-esbuild@^4.10.1:
     joycon "^3.0.1"
     jsonc-parser "^3.0.0"
 
-rollup-plugin-scss@^3.0.0:
+rollup-plugin-scss@3.0.0:
   version "3.0.0"
   resolved "https://registry.npmmirror.com/rollup-plugin-scss/-/rollup-plugin-scss-3.0.0.tgz#35ad0adc614217e0278e702d8a674820faa0929e"
   integrity sha512-UldNaNHEon2a5IusHvj/Nnwc7q13YDvbFxz5pfNbHBNStxGoUNyM+0XwAA/UafJ1u8XRPGdBMrhWFthrrGZdWQ==
   dependencies:
     rollup-pluginutils "^2.3.3"
 
-rollup-plugin-terser@^7.0.2:
+rollup-plugin-terser@7.0.2, rollup-plugin-terser@^7.0.2:
   version "7.0.2"
   resolved "https://registry.npmmirror.com/rollup-plugin-terser/-/rollup-plugin-terser-7.0.2.tgz#e8fbba4869981b2dc35ae7e8a502d5c6c04d324d"
   integrity sha512-w3iIaU4OxcF52UUXiZNsNeuXIMDvFrr+ZXK6bFZ0Q60qyVfq4uLptoS4bbq3paG3x216eQllFZX7zt6TIImguQ==
