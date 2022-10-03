@@ -22,9 +22,11 @@
 
 <script lang="ts">
   import Button from '../lib/Button.vue';
-  import Prism from 'prismjs';
+  import 'prismjs';
   import 'prismjs/themes/prism.css';
   import {computed, ref} from 'vue';
+
+  const Prism = (window as any).Prism;
 
   export default {
     components: {Button},
