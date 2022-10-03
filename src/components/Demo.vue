@@ -5,7 +5,13 @@
       <component :is="component"/>
     </div>
     <div class="demo-actions">
-      <Button @click="toggleCode ">查看代码</Button>
+      <Button v-if="codeVisible"
+              @click="hideCode">隐藏代码
+      </Button>
+      <Button v-else
+              @click="showCode">查看代码
+      </Button>
+
     </div>
     <div class="demo-code" v-if="codeVisible">
         <pre class="language-html"
@@ -32,9 +38,10 @@
 
       const codeVisible = ref(false);
 
-      const toggleCode = ()=>{codeVisible.value = !codeVisible.value}
+      const showCode = () => {codeVisible.value = true;};
+      const hideCode = () => {codeVisible.value = false;};
 
-      return {Prism, html, codeVisible, toggleCode };
+      return {Prism, html, codeVisible, showCode, hideCode};
     }
   };
 </script>
