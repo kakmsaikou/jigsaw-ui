@@ -1,6 +1,6 @@
 {
-  "name": "jigsaw-ui",
-  "version": "0.0.0",
+  "name": "jigsaw-ui-tacitus",
+  "version": "0.0.2",
   "license": "MIT",
   "files": ["dist/lib/*"],
   "main": "dist/lib/jigsaw-ui.js",
