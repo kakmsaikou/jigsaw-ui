@@ -11,7 +11,7 @@ export default {
       vue: 'Vue'
     },
     name: 'jigsaw-ui',
-    file: 'dist/lib/jigsaw.js',
+    file: 'dist/lib/jigsaw-ui.js',
     format: 'umd',
     plugins: [terser()]
   },

@@ -2,6 +2,8 @@
   "name": "jigsaw-ui",
   "version": "0.0.0",
   "license": "MIT",
+  "files": ["dist/lib/*"],
+  "main": "dist/lib/jigsaw-ui.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
