@@ -3,7 +3,14 @@
     <TopNav class="nav" menuButtonVisible/>
     <div class="content">
       <aside v-if="asideVisible">
-        <h2>文档</h2>
+        <h2>
+          <use>
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-pintu"></use>
+            </svg>
+          </use>
+          文档
+        </h2>
         <ol>
           <li>
             <router-link to="/doc/intro">介绍</router-link>
@@ -15,7 +22,12 @@
             <router-link to="/doc/get-started">开始使用</router-link>
           </li>
         </ol>
-        <h2>组件列表</h2>
+        <h2>
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-pintu"></use>
+          </svg>
+          组件
+        </h2>
         <ol>
           <li>
             <router-link to="/doc/switch">Switch 组件</router-link>
@@ -92,7 +104,9 @@
   }
 
   aside {
-    background: lightblue;
+    background: rgb(45,46,60);
+    background: radial-gradient(circle, rgba(45,46,60,1) 0%, rgba(59,60,79,1) 100%);
+    color: #999999;
     width: 150px;
     position: fixed;
     top: 0;
@@ -104,18 +118,23 @@
     > h2 {
       margin-bottom: 4px;
       padding: 0 16px;
+      font-weight: 600;
     }
 
     > ol {
       > li {
+        margin-bottom: 8px;
         > a {
           display: block;
           padding: 4px 16px;
           text-decoration: none;
 
           &.router-link-active {
-            background: white;
+            background: rgb(29,133,190);
+            background: radial-gradient(circle, rgba(29,133,190,1) 0%, rgba(70,162,217,1) 100%);
+            color: white;
             text-decoration: none;
+            font-weight: 600;
           }
         }
       }

@@ -1,9 +1,13 @@
 <template>
-  <div>
+  <div class="layout">
     <div class="TopNavAndBanner">
+      <img class="line3" src="../assets/line3.png" alt="">
       <TopNav/>
       <div class="banner">
-        <h1>拼图 UI</h1>
+        <div class="h1box">
+          <h1>拼图 UI</h1>
+          <img src="../assets/line2.png" alt="">
+        </div>
         <h2>一个有点东西的 UI 框架</h2>
         <p class="actions">
           <a href="https://github.com/kakmsaikou/jigsaw-ui">Github</a>
@@ -36,7 +40,6 @@
         </li>
       </ul>
     </div>
-
   </div>
 
 </template>
@@ -50,96 +53,137 @@
 </script>
 
 <style lang="scss" scoped>
-  $green: #02bcb0;
+  $blue: #4268fb;
   $border-radius: 4px;
-  $color: #007974;
+  $color: #26325e;
 
-  .TopNavAndBanner {
-    background: linear-gradient(145deg, rgba(227, 255, 253, 1) 0%, rgba(183, 233, 230, 1) 100%);
-    clip-path: ellipse(80% 60% at 50% 40%);
-  }
+  .layout {
+    position: relative;
 
-  .features {
-    margin: 64px auto;
-    padding: 0 16px;
+    .TopNavAndBanner {
+      background: #fdf5f1;
+      clip-path: ellipse(80% 60% at 50% 40%);
+      position: relative;
 
-    @media(min-width: 800px) {
-      width: 800px;
+      > .line3 {
+        width: 105vw;
+        min-width: 1000px;
+        position: absolute;
+        top: -15px;
+        left: -15px;
+        z-index: -1;
+      }
+
+      .banner {
+        color: $color;
+        padding: 100px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        > .h1box {
+          position: relative;
+
+          > h1 {
+            font-weight: 600;
+            font-size: 56px;
+            padding-bottom: 16px;
+            position: relative;
+            z-index: 2;
+          }
+
+          > img {
+            position: absolute;
+            width: 350px;
+            height: 176px;
+            top: -15px;
+            left: -68px;
+            z-index: 1;
+          }
+        }
 
 
-      > ul {
-        > li {
-          width: 50%;
+        > h2 {
+          padding-bottom: 16px;
+        }
+
+        > .actions {
+          padding: 8px 0;
+
+          a {
+            margin: 0 8px;
+            background: $blue;
+            color: white;
+            display: inline-block;
+            padding: 8px 24px;
+            border-radius: $border-radius;
+
+            &:hover {
+              text-decoration: none;
+            }
+          }
         }
       }
     }
 
-    @media(min-width: 1200px) {
-      width: 1200px;
-      > ul {
-        > li {
-          width: 33.3333%;
+    .features {
+      margin: 64px auto;
+      padding: 0 16px;
+
+      @media(min-width: 800px) {
+        width: 800px;
+
+
+        > ul {
+          > li {
+            width: 50%;
+          }
         }
       }
-    }
 
-    > ul {
-      display: flex;
-      flex-wrap: wrap;
+      @media(min-width: 1200px) {
+        width: 1200px;
+        > ul {
+          > li {
+            width: 33.3333%;
+          }
+        }
+      }
 
-      > li {
-        margin: 16px 0;
-        display: grid;
-        justify-content: start;
-        align-content: space-between;
-        grid-template-areas:
+      > ul {
+        display: flex;
+        flex-wrap: wrap;
+
+        > li {
+          margin: 16px 0;
+          display: grid;
+          justify-content: start;
+          align-content: space-between;
+          grid-template-areas:
       "icon title"
       "icon text";
 
-        grid-template-columns: 80px auto;
-        grid-template-rows: 1fr auto;
+          grid-template-columns: 80px auto;
+          grid-template-rows: 1fr auto;
 
-        > svg {
-          grid-area: icon;
-          width: 64px;
-          height: 64px;
-        }
+          > svg {
+            grid-area: icon;
+            width: 64px;
+            height: 64px;
+          }
 
-        > h3 {
-          grid-area: title;
-          font-size: 28px
-        }
+          > h3 {
+            grid-area: title;
+            font-size: 28px
+          }
 
-        > p {
-          grid-area: text
-        }
-      }
-    }
-  }
-
-  .banner {
-    color: $color;
-    padding: 100px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-    > .actions {
-      padding: 8px 0;
-
-      a {
-        margin: 0 8px;
-        background: $green;
-        color: white;
-        display: inline-block;
-        padding: 8px 24px;
-        border-radius: $border-radius;
-
-        &:hover {
-          text-decoration: none;
+          > p {
+            grid-area: text
+          }
         }
       }
     }
   }
+
 </style>

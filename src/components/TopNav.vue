@@ -10,7 +10,7 @@
         <router-link to="/doc">文档</router-link>
       </li>
     </ul>
-    <svg v-if="menuButtonVisible" class="toggleAside" @click="toggleMenu">
+    <svg v-if="menuButtonVisible" class="icon" @click="toggleMenu">
       <use xlink:href='#icon-menu'></use>
     </svg>
   </div>
@@ -40,7 +40,7 @@
 
 
 <style lang="scss" scoped>
-  $color: #007974;
+  $color: #26325e;
 
   .top-nav {
     color: $color;
@@ -74,7 +74,7 @@
       }
     }
 
-    > .toggleAside {
+    > .icon {
       width: 32px;
       height: 32px;
       position: absolute;
@@ -82,7 +82,6 @@
       top: 50%;
       transform: translateY(-50%);
       display: none;
-      background: fade-out(black, 0.9);
     }
 
     @media (max-width: 500px) {
@@ -92,7 +91,8 @@
       > .logo {
         margin: 0 auto;
       }
-      > .toggleAside {
+      > .icon {
+        color: #00b5fc;
         display: inline-block;
       }
     }
