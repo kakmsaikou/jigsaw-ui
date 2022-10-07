@@ -2,8 +2,9 @@ rm -rf dist &&
 yarn build &&
 cd dist &&
 git init &&
+git checkout -b gh-pages &&
 git add . &&
 git commit -m 'update' &&
-git remote add origin git@gitee.com:kakmsaikou/jigsaw-ui-webside.git &&
-git push -f -u origin "master" &&
+git remote add origin git@github.com:kakmsaikou/jigsaw-ui.git &&
+git push -f -u origin "gh-pages" &&
 cd -
